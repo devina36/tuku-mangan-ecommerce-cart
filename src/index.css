@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-montserrat box-border p-0 m-0 bg-whites overflow-x-hidden relative;
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+.sidebar-icon {
+  @apply w-[60px] h-[60px] flex items-center justify-center 
+  bg-transparent text-black
+  rounded-full mb-7;
+}
+
+.sidebar-icon.active {
+  @apply text-white bg-black;
+}
