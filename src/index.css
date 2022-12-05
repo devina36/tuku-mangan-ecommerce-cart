@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply font-montserrat box-border p-0 m-0 bg-whites overflow-x-hidden relative;
+  @apply font-montserrat box-border p-0 m-0 overflow-x-hidden relative bg-[#f9f9f9];
 }
 
 html {
