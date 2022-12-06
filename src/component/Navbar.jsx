@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../assets/logo.svg';
-import { FiShoppingCart, FiBell } from 'react-icons/fi';
+import { FiShoppingCart } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import { FiSearch } from 'react-icons/fi';
+import { connect, useDispatch, useSelector } from 'react-redux';
 
 const Navbar = ({ handleSide, handleCart }) => {
   const navigate = useNavigate();
 
+  const dispatch = useDispatch();
+
+  const getdata = useSelector((state) => state.cartReducer.carts);
+  console.log(getdata);
   return (
     <div className="flex w-full justify-between xl:p-[50px] px-[14px] pt-[50px] pb-[24px] flex-wrap items-center">
       <button className="border-2 border-yellow-accent p-1 rounded-full lg:hidden cursor-pointer" onClick={handleSide}>
@@ -29,7 +34,13 @@ const Navbar = ({ handleSide, handleCart }) => {
           onClick={handleCart}
         >
           <FiShoppingCart size={24} />
-          <div className="absolute w-[11px] h-[11px] top-0 right-0 rounded-full bg-yellow-accent"></div>
+          {getdata.length === 0 ? (
+            ''
+          ) : (
+            <div className="absolute w-7 h-7 flex justify-center items-center -top-2 -right-2 text-sm rounded-full bg-yellow-accent animate-slideup">
+              {getdata.length}
+            </div>
+          )}
         </button>
       </div>
     </div>
@@ -37,3 +48,10 @@ const Navbar = ({ handleSide, handleCart }) => {
 };
 
 export default Navbar;
+
+const mapStateToProps = (state) => {
+  return {
+    amount: state.amount,
+  };
+};
+connect(mapStateToProps)(Navbar);

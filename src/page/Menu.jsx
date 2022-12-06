@@ -43,7 +43,7 @@ const Menu = () => {
           </NavLink>
         </li>
       </ul>
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-4 gap-10">
         <Routes>
           <Route
             path=""
