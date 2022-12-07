@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './page/Home';
 import Menu from './page/Menu';
 import { Cartbar, Sidebar, Navbar, Search } from './component';
+import Detail from './page/Detail';
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -36,6 +37,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/menu/*" element={<Menu />} />
+              <Route path="/menu/:id" end element={<Detail />} />
             </Routes>
           </div>
         </div>

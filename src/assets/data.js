@@ -13,6 +13,7 @@ export const menuItemsData = [
     price: 18000,
     category: 'Salad',
     img: photo,
+    qty: 0,
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ export const menuItemsData = [
     price: 23000,
     category: 'Vegetables',
     img: photo1,
+    qty: 0,
   },
   {
     id: 3,
@@ -29,6 +31,7 @@ export const menuItemsData = [
     price: 52000,
     category: 'Dessert',
     img: photo2,
+    qty: 0,
   },
   {
     id: 4,
@@ -37,6 +40,7 @@ export const menuItemsData = [
     price: 24000,
     category: 'Fast Food',
     img: photo3,
+    qty: 0,
   },
   {
     id: 5,
@@ -45,6 +49,7 @@ export const menuItemsData = [
     price: 22000,
     category: 'Baverage',
     img: photo4,
+    qty: 0,
   },
   {
     id: 6,
@@ -53,5 +58,6 @@ export const menuItemsData = [
     price: 18000,
     category: 'Salad',
     img: photo5,
+    qty: 0,
   },
 ];

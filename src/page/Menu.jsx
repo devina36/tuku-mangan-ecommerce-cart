@@ -11,39 +11,39 @@ const notActive = 'text-dark-gray font-semibold';
 const Menu = () => {
   return (
     <>
-      <ul className="flex gap-10 mb-20">
+      <ul className="flex gap-10 mb-12 overflow-x-hidden flex-wrap">
         <li>
           <NavLink to="" end className={({ isActive }) => (isActive ? active : notActive)}>
             All
           </NavLink>
         </li>
         <li>
-          <NavLink to="fast-food" className={({ isActive }) => (isActive ? active : notActive)}>
+          <NavLink to="category/fast-food" className={({ isActive }) => (isActive ? active : notActive)}>
             Fast Food
           </NavLink>
         </li>
         <li>
-          <NavLink to="salad" className={({ isActive }) => (isActive ? active : notActive)}>
+          <NavLink to="category/salad" className={({ isActive }) => (isActive ? active : notActive)}>
             Salad
           </NavLink>
         </li>
         <li>
-          <NavLink to="baverage" className={({ isActive }) => (isActive ? active : notActive)}>
+          <NavLink to="category/baverage" className={({ isActive }) => (isActive ? active : notActive)}>
             Baverage
           </NavLink>
         </li>
         <li>
-          <NavLink to="dessert" className={({ isActive }) => (isActive ? active : notActive)}>
+          <NavLink to="category/dessert" className={({ isActive }) => (isActive ? active : notActive)}>
             Dessert
           </NavLink>
         </li>
         <li>
-          <NavLink to="vegetables" className={({ isActive }) => (isActive ? active : notActive)}>
+          <NavLink to="category/vegetables" className={({ isActive }) => (isActive ? active : notActive)}>
             Vegetables
           </NavLink>
         </li>
       </ul>
-      <div className="grid grid-cols-4 gap-10">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
         <Routes>
           <Route
             path=""
@@ -51,11 +51,11 @@ const Menu = () => {
               return <Itemcard data={data} key={i} />;
             })}
           />
-          <Route path="fast-food" element={<Category category="Fast Food" />} />
-          <Route path="salad" element={<Category category="Salad" />} />
-          <Route path="baverage" element={<Category category="Baverage" />} />
-          <Route path="dessert" element={<Category category="Dessert" />} />
-          <Route path="vegetables" element={<Category category="Vegetables" />} />
+          <Route path="category/fast-food" element={<Category category="Fast Food" />} />
+          <Route path="category/salad" element={<Category category="Salad" />} />
+          <Route path="category/baverage" element={<Category category="Baverage" />} />
+          <Route path="category/dessert" element={<Category category="Dessert" />} />
+          <Route path="category/vegetables" element={<Category category="Vegetables" />} />
         </Routes>
       </div>
     </>

@@ -30,7 +30,7 @@ const Navbar = ({ handleSide, handleCart }) => {
       </label>
       <div className="flex items-center">
         <button
-          className="w-[50px] relative h-[50px] flex justify-center items-center border-[1px] border-grays rounded-full"
+          className="w-[50px] relative h-[50px] flex justify-center items-center bg-white border-[1px] border-grays rounded-full"
           onClick={handleCart}
         >
           <FiShoppingCart size={24} />
