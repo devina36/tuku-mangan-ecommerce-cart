@@ -13,3 +13,10 @@ export const DELETE = (id) => {
     payload: id,
   };
 };
+
+export const DECREMENT = (item) => {
+  return {
+    type: REMOVE_ITEM,
+    payload: item,
+  };
+};

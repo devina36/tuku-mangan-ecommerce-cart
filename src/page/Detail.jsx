@@ -1,16 +1,23 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+// import { useEffect } from 'react';
+// import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { menuItemsData } from '../assets/data';
 import { FiArrowLeft, FiPlus, FiMinus } from 'react-icons/fi';
 import { numberWithCommas } from '../component/numberWithCommas';
+import { useDispatch } from 'react-redux';
+import { ADD } from '../controller/action';
 
-const Detail = () => {
+const Detail = ({ data }) => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const item = menuItemsData.find((item) => item.id === parseInt(id));
+
+  const addtoCart = (item) => {
+    dispatch(ADD(item));
+  };
 
   return (
     <>
@@ -35,26 +42,15 @@ const Detail = () => {
             accusantium neque est fuga ea magni, assumenda necessitatibus unde temporibus iusto, asperiores aperiam
             molestias quod.
           </h5>
-          <div className="flex items-center mb-10 mt-8 gap-x-10 justify-between">
-            <div className="flex items-center gap-x-4 ">
-              <button
-                className="w-[30px] text-white rounded-full h-[30px] flex justify-center items-center bg-[#d32746]"
-                aria-label="minus"
-              >
-                <FiMinus size={20} />
-              </button>
-              <span className="flex">{0}</span>
-              <button
-                className="w-[30px] text-white rounded-full h-[30px] flex justify-center items-center bg-black"
-                aria-label="plus"
-              >
-                <FiPlus size={20} />
-              </button>
-            </div>
-            <button className="bg-yellow-accent w-full max-w-[345px] py-[16px] text-sm font-semibold rounded-full">
-              Add to Cart
-            </button>
-          </div>
+          {/* <div className="flex items-center mb-10 mt-8 gap-x-10 justify-between"> */}
+
+          <button
+            className="bg-yellow-accent w-full max-w-[345px] py-[16px] text-sm font-semibold rounded-full mt-8 mb-10"
+            onClick={() => addtoCart(item)}
+          >
+            Add to Cart
+          </button>
+          {/* </div> */}
         </div>
       </div>
     </>

@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { FiX, FiPlus, FiMinus, FiTrash } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
-import { ADD } from '../controller/action';
+import { ADD, DECREMENT, DELETE } from '../controller/action';
 import { numberWithCommas } from './numberWithCommas';
 
 const Cartbar = ({ openCart, handleCart }) => {
@@ -14,6 +14,14 @@ const Cartbar = ({ openCart, handleCart }) => {
 
   const addtoCart = (item) => {
     dispatch(ADD(item));
+  };
+
+  const decrement = (item) => {
+    dispatch(DECREMENT(item));
+  };
+
+  const delete_item = (id) => {
+    dispatch(DELETE(id));
   };
 
   const total = () => {
@@ -71,6 +79,7 @@ const Cartbar = ({ openCart, handleCart }) => {
                       <button
                         className="w-[30px] text-white rounded-full h-[30px] flex justify-center items-center bg-[#d32746]"
                         aria-label="minus"
+                        onClick={item.qty <= 1 ? () => delete_item(item.id) : () => decrement(item)}
                       >
                         <FiMinus size={20} />
                       </button>
