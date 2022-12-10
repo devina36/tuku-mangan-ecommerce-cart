@@ -7,6 +7,7 @@ import { FiArrowLeft, FiPlus, FiMinus } from 'react-icons/fi';
 import { numberWithCommas } from '../component/numberWithCommas';
 import { useDispatch } from 'react-redux';
 import { ADD } from '../controller/action';
+import { FaRegHeart } from 'react-icons/fa';
 
 const Detail = ({ data }) => {
   const { id } = useParams();
@@ -42,15 +43,14 @@ const Detail = ({ data }) => {
             accusantium neque est fuga ea magni, assumenda necessitatibus unde temporibus iusto, asperiores aperiam
             molestias quod.
           </h5>
-          {/* <div className="flex items-center mb-10 mt-8 gap-x-10 justify-between"> */}
-
-          <button
-            className="bg-yellow-accent w-full max-w-[345px] py-[16px] text-sm font-semibold rounded-full mt-8 mb-10"
-            onClick={() => addtoCart(item)}
-          >
-            Add to Cart
-          </button>
-          {/* </div> */}
+          <div className="flex items-center mb-10 mt-8 gap-x-10">
+            <button
+              className="bg-yellow-accent w-full max-w-[345px] py-[16px] text-sm font-semibold rounded-full mt-8 mb-10"
+              onClick={() => addtoCart(item)}
+            >
+              Add to Cart
+            </button>
+          </div>
         </div>
       </div>
     </>

@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { numberWithCommas } from './numberWithCommas';
 import { ADD } from '../controller/action';
 import { Link } from 'react-router-dom';
+import { FaRegHeart } from 'react-icons/fa';
 
 const Itemcard = ({ data }) => {
   const dispatch = useDispatch();

@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { FiSearch } from 'react-icons/fi';
 import { connect, useSelector } from 'react-redux';
 
-const Navbar = ({ handleSide, handleCart }) => {
+const Navbar = ({ handleSide, handleCart, value, onChange }) => {
+  const navigate = useNavigate();
   const getdata = useSelector((state) => state.cartReducer.carts);
 
   return (
@@ -13,9 +14,20 @@ const Navbar = ({ handleSide, handleCart }) => {
       <button className="border-2 border-yellow-accent p-1 rounded-full lg:hidden cursor-pointer" onClick={handleSide}>
         <img src={logo} alt="logo" className=" w-10 h-10" />
       </button>
-      <div className="order-last lg:order-none">
-        <h2 className=" text-black text-[26px] leading-[32px] font-semibold mb-2">Order Foods</h2>
-        <h5 className=" text-dark-gray font-medium leading-5 mb-2">Your happiness start here</h5>
+      <div className="flex">
+        <label htmlFor="search">
+          <div className="border-yellow-accent rounded-full border-[1px] relative w-fit">
+            <input
+              type="text"
+              placeholder="Search here..."
+              value={value}
+              className="md:w-[350px] w-[200px] h-[50px] bg-white rounded-full focus:outline-none py-1 pr-[50px] pl-5 placeholder:text-gray-400"
+              onChange={onChange}
+              onFocus={() => navigate('/search')}
+            />
+            <FiSearch size={24} className="absolute h-[50px] top-0 right-4" />
+          </div>
+        </label>
       </div>
       <div className="flex">
         <button

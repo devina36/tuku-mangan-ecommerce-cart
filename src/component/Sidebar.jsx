@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../assets/logo.svg';
-import { FiGrid, FiShoppingBag } from 'react-icons/fi';
+import { FiGrid, FiShoppingBag, FiHome } from 'react-icons/fi';
 import { NavLink } from 'react-router-dom';
 
 const Sidebar = ({ open }) => {
@@ -17,9 +17,12 @@ const Sidebar = ({ open }) => {
       </div>
       <div className="pt-[50px] flex flex-col justify-center items-center">
         <NavLink end to="/" className={({ isActive }) => (isActive ? `sidebar-icon active` : `sidebar-icon`)}>
-          <FiGrid size={24} />
+          <FiHome size={24} />
         </NavLink>
         <NavLink to="/menu" className={({ isActive }) => (isActive ? `sidebar-icon active` : `sidebar-icon`)}>
+          <FiGrid size={24} />
+        </NavLink>
+        <NavLink to="/my-cart" className={({ isActive }) => (isActive ? `sidebar-icon active` : `sidebar-icon`)}>
           <FiShoppingBag size={24} />
         </NavLink>
       </div>

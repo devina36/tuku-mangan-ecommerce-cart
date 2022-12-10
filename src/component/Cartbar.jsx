@@ -8,6 +8,7 @@ import { numberWithCommas } from './numberWithCommas';
 
 const Cartbar = ({ openCart, handleCart }) => {
   const [totalPrice, setTotalPrice] = useState(0);
+
   const getdata = useSelector((state) => state.cartReducer.carts);
 
   const dispatch = useDispatch();
