@@ -20,7 +20,7 @@ export const menuItemsData = [
     name: 'Chicken Soup',
     info: 'spicey with garlic and then deep fried to crispy perfection',
     price: 23000,
-    category: 'Vegetables',
+    category: 'Soup',
     img: photo1,
     qty: 0,
   },

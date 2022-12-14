@@ -1,6 +1,8 @@
 import React from 'react';
 import photo from '../assets/img/food/photo.png';
 import { FiArrowRight } from 'react-icons/fi';
+import CardCategory from '../component/CardCategory';
+import { salad, baverage, soup, dessert, fastfood } from '../assets/img/category';
 
 const Home = () => {
   return (
@@ -18,6 +20,16 @@ const Home = () => {
           <div className="p-5 rounded-full border-yellow-500 border-2">
             <img src={photo} alt="menu" className=" max-w-[250px]  h-auto shadow-lg rounded-full" />
           </div>
+        </div>
+      </div>
+      <div className="mt-10">
+        <h4 className="text-xl font-semibold">Menu Category</h4>
+        <div className=" grid grid-cols-5 gap-x-5 place-items-center mt-7">
+          <CardCategory category={fastfood} title="Fast Food" link={'/menu/category/fast-food'} />
+          <CardCategory category={salad} title="Salad" link={'/menu/category/salad'} />
+          <CardCategory category={soup} title="Soup" link={'/menu/category/soup'} />
+          <CardCategory category={dessert} title="Dessert" link={'/menu/category/dessert'} />
+          <CardCategory category={baverage} title="Baverage" link={'/menu/category/baverage'} />
         </div>
       </div>
     </>

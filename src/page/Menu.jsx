@@ -38,8 +38,8 @@ const Menu = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="category/vegetables" className={({ isActive }) => (isActive ? active : notActive)}>
-            Vegetables
+          <NavLink to="category/soup" className={({ isActive }) => (isActive ? active : notActive)}>
+            Soup
           </NavLink>
         </li>
       </ul>
@@ -47,7 +47,7 @@ const Menu = () => {
         <Route
           path=""
           element={
-            <div className="grid grid-cols-4 gap-10 animate-slideup">
+            <div className="grid md:grid-cols-4 grid-cols-2 gap-10">
               {menuItemsData.map((data, i) => {
                 return <Itemcard data={data} key={i} />;
               })}
@@ -58,7 +58,7 @@ const Menu = () => {
         <Route path="category/salad" element={<Category category="Salad" />} />
         <Route path="category/baverage" element={<Category category="Baverage" />} />
         <Route path="category/dessert" element={<Category category="Dessert" />} />
-        <Route path="category/vegetables" element={<Category category="Vegetables" />} />
+        <Route path="category/soup" element={<Category category="Soup" />} />
       </Routes>
     </>
   );

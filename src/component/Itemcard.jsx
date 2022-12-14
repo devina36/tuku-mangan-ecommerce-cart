@@ -3,13 +3,21 @@ import { useDispatch } from 'react-redux';
 import { numberWithCommas } from './numberWithCommas';
 import { ADD } from '../controller/action';
 import { Link } from 'react-router-dom';
-import { FaRegHeart } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const Itemcard = ({ data }) => {
   const dispatch = useDispatch();
 
   const addtoCart = (item) => {
     dispatch(ADD(item));
+
+    Swal.fire({
+      html: `<p className=' text-lg'><b>${item.name}</b> has been added to your cart</p>`,
+      icon: 'success',
+      showConfirmButton: false,
+      timer: 2000,
+      timerProgressBar: true,
+    });
   };
   return (
     <div

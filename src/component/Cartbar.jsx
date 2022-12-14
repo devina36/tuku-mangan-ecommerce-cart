@@ -1,29 +1,13 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { FiX, FiPlus, FiMinus, FiTrash } from 'react-icons/fi';
-import { useDispatch, useSelector } from 'react-redux';
-import { ADD, DECREMENT, DELETE } from '../controller/action';
+import React, { useEffect, useState } from 'react';
+import { FiX, FiEdit } from 'react-icons/fi';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { numberWithCommas } from './numberWithCommas';
 
 const Cartbar = ({ openCart, handleCart }) => {
   const [totalPrice, setTotalPrice] = useState(0);
 
   const getdata = useSelector((state) => state.cartReducer.carts);
-
-  const dispatch = useDispatch();
-
-  const addtoCart = (item) => {
-    dispatch(ADD(item));
-  };
-
-  const decrement = (item) => {
-    dispatch(DECREMENT(item));
-  };
-
-  const delete_item = (id) => {
-    dispatch(DELETE(id));
-  };
 
   const total = () => {
     let price = 0;
@@ -46,7 +30,7 @@ const Cartbar = ({ openCart, handleCart }) => {
         onClick={handleCart}
       ></div>
       <div
-        className={`fixed top-0 w-9/12 md:w-5/12 md:max-w-[495px] py-[70px] px-[50px] bg-white h-screen z-30 
+        className={`fixed top-0 w-9/12 md:w-5/12 md:max-w-[495px] overflow-y-auto py-[70px] px-[50px] bg-white h-screen z-30 
         transition-all duration-300 ease-in-out ${openCart === true ? `right-0` : `-right-full`}`}
       >
         <div className="flex justify-between items-center mb-12">
@@ -63,10 +47,15 @@ const Cartbar = ({ openCart, handleCart }) => {
         </div>
         {getdata.length ? (
           <div className="flex flex-col">
+            <Link to={'/my-cart'} className="text-end">
+              <button onClick={handleCart} className=" text-dark-gray hover:text-yellow-accent" aria-label="edit">
+                <FiEdit size={22} />
+              </button>
+            </Link>
             <div className="flex flex-col gap-y-5 mb-12">
               {getdata.map((item, i) => {
                 return (
-                  <div key={i} className="flex justify-between">
+                  <div key={i} className="flex justify-between items-center">
                     <div className="flex items-center gap-x-3">
                       <div className="p-1 bg-whites border-grays border-[1px]  rounded-full">
                         <img src={item.img} alt="item-cart" className=" w-16 h-16" />
@@ -76,23 +65,7 @@ const Cartbar = ({ openCart, handleCart }) => {
                         <h5 className=" font-medium text-dark-gray mr-10">IDR {numberWithCommas(item.price)}</h5>
                       </div>
                     </div>
-                    <div className="flex items-center gap-x-2">
-                      <button
-                        className="w-[30px] text-white rounded-full h-[30px] flex justify-center items-center bg-[#d32746]"
-                        aria-label="minus"
-                        onClick={item.qty <= 1 ? () => delete_item(item.id) : () => decrement(item)}
-                      >
-                        <FiMinus size={20} />
-                      </button>
-                      <span className="flex">{item.qty}</span>
-                      <button
-                        className="w-[30px] text-white rounded-full h-[30px] flex justify-center items-center bg-black"
-                        aria-label="plus"
-                        onClick={() => addtoCart(item)}
-                      >
-                        <FiPlus size={20} />
-                      </button>
-                    </div>
+                    <h5>x{item.qty}</h5>
                   </div>
                 );
               })}

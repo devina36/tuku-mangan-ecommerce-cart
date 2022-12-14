@@ -22,7 +22,9 @@ function App() {
   return (
     <>
       <div
-        className={`fixed inset-0 bg-black bg-opacity-30 z-[1] lg:hidden ${open === true ? `block` : `hidden`}`}
+        className={`fixed inset-0 overflow-y-auto bg-black bg-opacity-30 z-[1] lg:hidden ${
+          open === true ? `block` : `hidden`
+        }`}
         onClick={() => {
           setOpen(false);
         }}
