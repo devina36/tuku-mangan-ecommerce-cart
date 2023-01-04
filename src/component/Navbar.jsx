@@ -10,7 +10,7 @@ const Navbar = ({ handleSide, handleCart, value, onChange }) => {
   const getdata = useSelector((state) => state.cartReducer.carts);
 
   return (
-    <div className="flex w-full gap-x-10 justify-between xl:p-[50px] px-[14px] pt-[50px] pb-[24px] flex-wrap items-center">
+    <div className="flex w-full gap-x-5 md:gap-x-10 justify-between xl:p-[50px] px-[14px] pt-[50px] pb-[24px] flex-wrap items-center">
       <button className="border-2 border-yellow-accent p-1 rounded-full lg:hidden cursor-pointer" onClick={handleSide}>
         <img src={logo} alt="logo" className=" w-10 h-10" />
       </button>

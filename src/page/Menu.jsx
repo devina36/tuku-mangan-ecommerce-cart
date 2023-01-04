@@ -11,33 +11,33 @@ const notActive = 'text-dark-gray font-semibold';
 const Menu = () => {
   return (
     <>
-      <ul className="flex gap-10 mb-12 overflow-x-hidden flex-wrap">
-        <li>
+      <ul className="flex gap-10 mb-12 pb-4 overflow-x-auto snap-x snap-mandatory scroll-p-10">
+        <li className=" snap-start">
           <NavLink to="" end className={({ isActive }) => (isActive ? active : notActive)}>
             All
           </NavLink>
         </li>
-        <li>
+        <li className="snap-start min-w-fit">
           <NavLink to="category/fast-food" className={({ isActive }) => (isActive ? active : notActive)}>
             Fast Food
           </NavLink>
         </li>
-        <li>
+        <li className="snap-start">
           <NavLink to="category/salad" className={({ isActive }) => (isActive ? active : notActive)}>
             Salad
           </NavLink>
         </li>
-        <li>
+        <li className="snap-start">
           <NavLink to="category/baverage" className={({ isActive }) => (isActive ? active : notActive)}>
             Baverage
           </NavLink>
         </li>
-        <li>
+        <li className="snap-start">
           <NavLink to="category/dessert" className={({ isActive }) => (isActive ? active : notActive)}>
             Dessert
           </NavLink>
         </li>
-        <li>
+        <li className="snap-start">
           <NavLink to="category/soup" className={({ isActive }) => (isActive ? active : notActive)}>
             Soup
           </NavLink>

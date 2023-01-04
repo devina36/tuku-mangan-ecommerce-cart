@@ -30,7 +30,7 @@ const Cartbar = ({ openCart, handleCart }) => {
         onClick={handleCart}
       ></div>
       <div
-        className={`fixed top-0 w-9/12 md:w-5/12 md:max-w-[495px] overflow-y-auto py-[70px] px-[50px] bg-white h-screen z-30 
+        className={`fixed top-0 w-9/12 md:w-5/12 sm:max-w-[495px] overflow-y-auto py-[70px] px-5 sm:px-[50px] bg-white h-screen z-30 
         transition-all duration-300 ease-in-out ${openCart === true ? `right-0` : `-right-full`}`}
       >
         <div className="flex justify-between items-center mb-12">

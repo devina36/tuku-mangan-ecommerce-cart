@@ -18,7 +18,7 @@ const Search = ({ value }) => {
   return (
     <>
       <h2 className="font-semibold text-[26px] mb-5">Search</h2>
-      <div className="grid grid-cols-4 gap-10">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
         {data.map((item) => {
           return <Itemcard data={item} key={item.id} />;
         })}

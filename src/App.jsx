@@ -32,7 +32,7 @@ function App() {
       <Cartbar openCart={openCart} handleCart={() => setOpenCart(false)} />
       <div className=" flex relative">
         <div className=" absolute lg:block w-full lg:w-[130px] lg:relative z-[3]">
-          <Sidebar open={open} />
+          <Sidebar open={open} setOpen={() => setOpen(false)} />
         </div>
         <div className="w-full lg:w-[calc(100%-130px)] ">
           <Navbar handleSide={handleSide} handleCart={() => setOpenCart(true)} value={value} onChange={search} />
